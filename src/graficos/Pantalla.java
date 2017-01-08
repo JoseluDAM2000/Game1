@@ -7,6 +7,11 @@ public final class Pantalla {
 
 	public final int[] pixeles;
 
+	// Temporal
+	private final static int LADO_SPRITE = 32;
+	private final static int MASCARA_SPRITE = LADO_SPRITE - 1;
+	// fin temporal
+
 	public Pantalla(final int ancho, final int alto) {
 		this.ancho = ancho;
 		this.alto = alto;
@@ -30,7 +35,8 @@ public final class Pantalla {
 				if (posicionX < 0 || posicionX >= ancho) {
 					continue;
 				}
-
+				pixeles[posicionX + posicionY * ancho] = Sprite.hierba.pixeles[(x & MASCARA_SPRITE)
+						+ (y & MASCARA_SPRITE) * LADO_SPRITE];
 			}
 		}
 	}
