@@ -2,7 +2,7 @@ package mapa;
 
 import graficos.Pantalla;
 
-public class Mapa {
+public abstract class Mapa {
 	private int ancho;
 	private int alto;
 	private int[] cuadro;
