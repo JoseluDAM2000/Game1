@@ -9,7 +9,7 @@ public final class Sprite {
 	private final HojaSprites hoja;
 
 	// colección de sprites
-	public static Sprite hierba = new Sprite(32, 0, 0, HojaSprites.verde);
+	public static final Sprite HIERBA = new Sprite(32, 0, 0, HojaSprites.verde);
 	// fin de la colección
 
 	public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja) {

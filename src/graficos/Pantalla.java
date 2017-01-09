@@ -35,7 +35,7 @@ public final class Pantalla {
 				if (posicionX < 0 || posicionX >= ancho) {
 					continue;
 				}
-				pixeles[posicionX + posicionY * ancho] = Sprite.hierba.pixeles[(x & MASCARA_SPRITE)
+				pixeles[posicionX + posicionY * ancho] = Sprite.HIERBA.pixeles[(x & MASCARA_SPRITE)
 						+ (y & MASCARA_SPRITE) * LADO_SPRITE];
 			}
 		}
