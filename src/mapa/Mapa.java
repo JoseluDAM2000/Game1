@@ -31,7 +31,10 @@ public abstract class Mapa {
 	}
 
 	public void mostrar(int compensacionX, int compensacionY, Pantalla pantalla) {
-
+		int o = compensacionX >> 5;
+		int e = (compensacionX + pantalla.obtenAncho()) << 5;
+		int n = compensacionY >> 5;
+		int s = (compensacionY + pantalla.obtenAlto()) << 5;
 	}
 
 }
