@@ -20,22 +20,26 @@ public abstract class Mapa {
 	}
 
 	protected void generarMapa() {
-
 	}
 
 	private void cargarMapa(String ruta) {
-
 	}
 
 	public void actualizar() {
-
 	}
 
 	public void mostrar(final int compensacionX, final int compensacionY, final Pantalla pantalla) {
+		pantalla.estableceDiferencia(compensacionX, compensacionY);
 		int o = compensacionX >> 5;
-		int e = (compensacionX + pantalla.obtenAncho()) << 5;
+		int e = (compensacionX + pantalla.obtenAncho()) >> 5;
 		int n = compensacionY >> 5;
-		int s = (compensacionY + pantalla.obtenAlto()) << 5;
+		int s = (compensacionY + pantalla.obtenAlto()) >> 5;
+
+		for (int y = n; y < s; y++) {
+			for (int x = o; x < e; x++) {
+				obtenCuadro(x, y).mostrar(x, y, pantalla);
+			}
+		}
 	}
 
 	public Cuadro obtenCuadro(final int x, final int y) {
@@ -43,13 +47,12 @@ public abstract class Mapa {
 		case 0:
 			return Cuadro.HIERBA;
 		case 1:
-
+			return Cuadro.FLOR;
 		case 2:
-
+			return Cuadro.FLORES;
+		case 3:
 		default:
-			return null;
+			return Cuadro.VACIO;
 		}
-
 	}
-
 }

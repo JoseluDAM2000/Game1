@@ -11,6 +11,8 @@ public final class Sprite {
 	// colección de sprites
 	public static final Sprite VACIO = new Sprite(32, 0);
 	public static final Sprite HIERBA = new Sprite(32, 0, 0, HojaSprites.verde);
+	public static final Sprite FLOR = new Sprite(32, 1, 0, HojaSprites.verde);
+	public static final Sprite FLORES = new Sprite(32, 2, 0, HojaSprites.verde);
 	// fin de la colección
 
 	public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja) {

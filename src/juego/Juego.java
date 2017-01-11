@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 
 import control.Teclado;
 import graficos.Pantalla;
+import mapa.Mapa;
+import mapa.MapaGenerado;
 
 public class Juego extends Canvas implements Runnable {
 
@@ -33,10 +35,12 @@ public class Juego extends Canvas implements Runnable {
 	private static BufferedImage imagen = new BufferedImage(ANCHO, ALTO, BufferedImage.TYPE_INT_RGB);
 	private static int[] pixeles = ((DataBufferInt) imagen.getRaster().getDataBuffer()).getData();
 	private static final ImageIcon icono = new ImageIcon(Juego.class.getResource("/icono/ojo.png"));
+	private static Mapa mapa;
 
 	private Juego() {
 		setPreferredSize(new Dimension(ANCHO, ALTO));
 		pantalla = new Pantalla(ANCHO, ALTO);
+		mapa = new MapaGenerado(128, 128);
 		teclado = new Teclado();
 		addKeyListener(teclado);
 
@@ -49,6 +53,7 @@ public class Juego extends Canvas implements Runnable {
 		ventana.pack();
 		ventana.setLocationRelativeTo(null);
 		ventana.setVisible(true);
+
 	}
 
 	public static void main(String[] args) {
@@ -74,16 +79,16 @@ public class Juego extends Canvas implements Runnable {
 	private void actualizar() {
 		teclado.actualizar();
 		if (teclado.arriba) {
-			y++;
-		}
-		if (teclado.abajo) {
 			y--;
 		}
+		if (teclado.abajo) {
+			y++;
+		}
 		if (teclado.izquierda) {
-			x++;
+			x--;
 		}
 		if (teclado.derecha) {
-			x--;
+			x++;
 		}
 		aps++;
 	}
@@ -95,11 +100,7 @@ public class Juego extends Canvas implements Runnable {
 			return;
 		}
 		pantalla.limpiar();
-		pantalla.mostrar(x, y);
-
-		// for (int i = 0; i < pixeles.length; i++) {
-		// pixeles[i] = pantalla.pixeles[i];
-		// }
+		mapa.mostrar(x, y, pantalla);
 
 		System.arraycopy(pantalla.pixeles, 0, pixeles, 0, pixeles.length);
 
