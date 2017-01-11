@@ -1,6 +1,7 @@
 package mapa;
 
 import graficos.Pantalla;
+import mapa.cuadro.Cuadro;
 
 public abstract class Mapa {
 	protected int ancho;
@@ -30,11 +31,25 @@ public abstract class Mapa {
 
 	}
 
-	public void mostrar(int compensacionX, int compensacionY, Pantalla pantalla) {
+	public void mostrar(final int compensacionX, final int compensacionY, final Pantalla pantalla) {
 		int o = compensacionX >> 5;
 		int e = (compensacionX + pantalla.obtenAncho()) << 5;
 		int n = compensacionY >> 5;
 		int s = (compensacionY + pantalla.obtenAlto()) << 5;
+	}
+
+	public Cuadro obtenCuadro(final int x, final int y) {
+		switch (cuadros[x + y * ancho]) {
+		case 0:
+			return Cuadro.HIERBA;
+		case 1:
+
+		case 2:
+
+		default:
+			return null;
+		}
+
 	}
 
 }

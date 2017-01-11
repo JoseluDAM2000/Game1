@@ -9,7 +9,9 @@ public abstract class Cuadro {
 	public Sprite sprite;
 
 	// Coleccion de cuadros
+	public static final Cuadro VACIO = new CuadroVacio(Sprite.VACIO);
 	public static final Cuadro HIERBA = new CuadroHierba(Sprite.HIERBA);
+
 	// Fin de la coleccion de cuadros
 
 	public Cuadro(Sprite sprite) {
