@@ -24,6 +24,8 @@ public class Juego extends Canvas implements Runnable {
 	private static final int ALTO = 600;
 	private static volatile boolean enFuncionamiento = false;
 	private static final String NOMBRE = "Juego";
+	private static String CONTADOR_FPS = "";
+	private static String CONTADOR_APS = "";
 	private static int aps = 0;
 	private static int fps = 0;
 	private static int x = 0;
@@ -50,6 +52,7 @@ public class Juego extends Canvas implements Runnable {
 		ventana.setIconImage(icono.getImage());
 		ventana.setLayout(new BorderLayout());
 		ventana.add(this, BorderLayout.CENTER);
+		ventana.setUndecorated(true);
 		ventana.pack();
 		ventana.setLocationRelativeTo(null);
 		ventana.setVisible(true);
@@ -90,6 +93,9 @@ public class Juego extends Canvas implements Runnable {
 		if (teclado.derecha) {
 			x++;
 		}
+		if (teclado.salir) {
+			System.exit(0);
+		}
 		aps++;
 	}
 
@@ -108,6 +114,9 @@ public class Juego extends Canvas implements Runnable {
 		g.drawImage(imagen, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.white);
 		g.fillRect(ANCHO / 2 - 16, ALTO / 2 - 16, 32, 32);
+		g.setColor(Color.red);
+		g.drawString(CONTADOR_APS, 10, 20);
+		g.drawString(CONTADOR_FPS, 10, 40);
 		g.dispose();
 		estrategia.show();
 		fps++;
@@ -143,6 +152,8 @@ public class Juego extends Canvas implements Runnable {
 
 			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
 				ventana.setTitle(NOMBRE + " || APS: " + aps + " || FPS: " + fps);
+				CONTADOR_APS = "APS: " + aps;
+				CONTADOR_FPS = "FPS: " + fps;
 				aps = 0;
 				fps = 0;
 				referenciaContador = System.nanoTime();
