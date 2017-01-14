@@ -7,6 +7,7 @@ public abstract class Cuadro {
 	public int x;
 	public int y;
 	public Sprite sprite;
+	public static final int LADO = 32;
 
 	// Coleccion de cuadros
 	public static final Cuadro VACIO = new CuadroVacio(Sprite.VACIO);
