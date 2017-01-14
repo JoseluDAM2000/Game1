@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import control.Teclado;
 import graficos.Pantalla;
 import mapa.Mapa;
-import mapa.MapaGenerado;
+import mapa.MapaCargado;
 
 public class Juego extends Canvas implements Runnable {
 
@@ -42,17 +42,17 @@ public class Juego extends Canvas implements Runnable {
 	private Juego() {
 		setPreferredSize(new Dimension(ANCHO, ALTO));
 		pantalla = new Pantalla(ANCHO, ALTO);
-		mapa = new MapaGenerado(128, 128);
+		// mapa = new MapaGenerado(128, 128);
+		mapa = new MapaCargado("/mapas/lvl1.png");
 		teclado = new Teclado();
 		addKeyListener(teclado);
-
 		ventana = new JFrame(NOMBRE);
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ventana.setResizable(false);
 		ventana.setIconImage(icono.getImage());
 		ventana.setLayout(new BorderLayout());
 		ventana.add(this, BorderLayout.CENTER);
-		ventana.setUndecorated(true);
+		ventana.setUndecorated(false);
 		ventana.pack();
 		ventana.setLocationRelativeTo(null);
 		ventana.setVisible(true);

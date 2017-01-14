@@ -20,6 +20,9 @@ public class Cuadro {
 	public static final Cuadro HIERBA7 = new Cuadro(Sprite.HIERBA7);
 	public static final Cuadro HIERBA8 = new Cuadro(Sprite.HIERBA8);
 	public static final Cuadro HIERBA9 = new Cuadro(Sprite.HIERBA9);
+	public static final Cuadro PIEDRA1 = new Cuadro(Sprite.PIEDRA1);
+	public static final Cuadro PIEDRA3 = new Cuadro(Sprite.PIEDRA3);
+	public static final Cuadro PIEDRA4 = new Cuadro(Sprite.PIEDRA4);
 	public static final Cuadro FLOR1 = new Cuadro(Sprite.FLOR1);
 	public static final Cuadro FLOR2 = new Cuadro(Sprite.FLOR2);
 	public static final Cuadro FLOR3 = new Cuadro(Sprite.FLOR3);
@@ -33,13 +36,12 @@ public class Cuadro {
 	public static final Cuadro TEMPLO13 = new Cuadro(Sprite.TEMPLO13);
 	public static final Cuadro TEMPLO14 = new Cuadro(Sprite.TEMPLO14);
 	public static final Cuadro TEMPLO20 = new Cuadro(Sprite.TEMPLO20);
-	public static final Cuadro TEMPLO21 = new Cuadro(Sprite.TEMPLO21);
 	public static final Cuadro TEMPLO23 = new Cuadro(Sprite.TEMPLO23);
 	public static final Cuadro TEMPLO24 = new Cuadro(Sprite.TEMPLO24);
+	public static final Cuadro TEMPLO34 = new Cuadro(Sprite.TEMPLO34);
 	public static final Cuadro TEMPLO38 = new Cuadro(Sprite.TEMPLO38); // Adorno
 	public static final Cuadro TEMPLO39 = new Cuadro(Sprite.TEMPLO39);
 	public static final Cuadro TEMPLO47 = new Cuadro(Sprite.TEMPLO47);
-
 	// Fin de la coleccion de cuadros
 
 	public Cuadro(Sprite sprite) {
