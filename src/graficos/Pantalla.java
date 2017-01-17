@@ -16,11 +16,11 @@ public final class Pantalla {
 		pixeles = new int[ancho * alto];
 	}
 
-	public void limpiar() {
-		for (int i = 0; i < pixeles.length; i++) {
-			pixeles[i] = 0;
-		}
-	}
+	// public void limpiar() {
+	// for (int i = 0; i < pixeles.length; i++) {
+	// pixeles[i] = 0;
+	// }
+	// }
 
 	public void mostrarCuadro(int compensacionX, int compensacionY, Cuadro cuadro) {
 		compensacionX -= diferenciaX;
